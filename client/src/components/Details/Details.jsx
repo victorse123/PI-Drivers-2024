@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/Header';
-import DogDetail from './DogDetail/DogDetail';
+import DriverDetail from './DriversDetail/DriversDetail';
 import { GET_DETAILS, getDetail } from '../../Redux/actions/actions';
 import Footer from '../Footer/Footer';
 import './Details.css';
@@ -11,7 +11,7 @@ function Details(props) {
   const dispatch = useDispatch();
 
   // Obtiene la información del estado utilizando useSelector
-  const dog = useSelector(state => state.details);
+  const driver = useSelector(state => state.details);
 
   // Obtiene el ID de los parámetros de la URL
   const id = props.match.params.id;
@@ -35,7 +35,7 @@ function Details(props) {
 
       {/* Componente de detalles del perro */}
       {/* Pasa el perro específico del estado al componente DogDetail */}
-      <DogDetail dog={dog[0]} />
+      <DriverDetail driver={driver[0]} />
 
       {/* Componente del pie de página */}
       <Footer />
