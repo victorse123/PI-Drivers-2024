@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Get Schwifty';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff') format('woff');
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #bfde42 0, #193840);
+    border: none;
+    border-radius: 9px;
+    box-shadow: inset 0 0 2px #acdd26;
+    color: #fff;
+    cursor: pointer;
+    font: 28px/28px 'Get Schwifty';
+    padding: 5px 15px; /* Ajusta el espaciado vertical y horizontal */
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px; /* Espaciado entre los enlaces de navegación */
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .search {
+    background: linear-gradient(180deg, #bfde42 0, #193840);
+    border: none;
+    border-radius: 9px;
+    box-shadow: inset 0 0 2px #acdd26;
+    color: #fff;
+    cursor: pointer;
+    font: 26px/26px HelveticaNeue, Helvetica, Arial, sans-serif;
+    padding: 15px; /* Ajusta el espaciado vertical y horizontal */
+  }
+
+  .cer {
+    background: linear-gradient(180deg, #bfde42 0, #193840);
+    border: none;
+    border-radius: 9px;
+    box-shadow: inset 0 0 2px #acdd26;
+    color: #fff;
+    cursor: pointer;
+    font: 26px/26px HelveticaNeue, Helvetica, Arial, sans-serif;
+    padding: 15px; /* Ajusta el espaciado vertical y horizontal */
+  }
