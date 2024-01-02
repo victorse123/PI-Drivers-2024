@@ -17,7 +17,7 @@ function Header() {
       <div className="header_cont">
         {/* Encabezado para la versión responsive */}
         <div className='div_responsive_header'>
-          <Link to="/home" className="logo"><h1 className="logo">DOGS</h1></Link>
+          <Link to="/home" className="logo"><h1 className="logo">DRIVERS</h1></Link>
           <button className='button_header_menu' onClick={handleClick}>
             <img className='menu' src={menu} alt="menu" />
           </button>
