@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '../Header/Header';
 import AllCards from './AllCards/AllCards';
 //import SearchBar from '../Header/SearchBar/SearchBar';
-import ButtonCreateDog from './ButtonCreateDog/ButtonCreateDog';
+import ButtonCreateDriver from './ButtonCreateDriver/ButtonCreateDriver';
 import Filtros from './Filter/Filtros';
 import Footer from '../Footer/Footer';
 import { useDispatch } from 'react-redux';
@@ -25,17 +25,17 @@ function Home() {
   }
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [dogsPerPage] = useState(8);
+  const [driversPerPage] = useState(8);
 
-  const indexOfLastDog = currentPage * dogsPerPage;
-  const indexOfFirstDog = indexOfLastDog - dogsPerPage;
+  const indexOfLastDriver = currentPage * driversPerPage;
+  const indexOfFirstDriver = indexOfLastDriver - driversPerPage;
   
   return (
     <div className="home">
       <Header />
       <div className='home_options'>
-        {/* Botón para crear un nuevo perro */}
-        <ButtonCreateDog />
+        {/* Botón para crear un nuevo driver */}
+        <ButtonCreateDriver />
         <div className='div_filtro_ordernamineto'>
           {/* Componente para filtrar y ordenar */}
           <Filtros currentPage={currentPage} setCurrentPage={setCurrentPage} />
@@ -51,13 +51,13 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* Componente que muestra las cartas de los perros */}
+      {/* Componente que muestra las cartas de los drivers */}
       <AllCards 
         currentPage={currentPage} 
         setCurrentPage={setCurrentPage} 
-        dogsPerPage={dogsPerPage} 
-        indexOfFirstDog={indexOfFirstDog} 
-        indexOfLastDog={indexOfLastDog}
+        driversPerPage={driversPerPage} 
+        indexOfFirstDriver={indexOfFirstDriver} 
+        indexOfLastDriver={indexOfLastDriver}
       />
       <Footer />
      
