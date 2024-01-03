@@ -33,8 +33,8 @@ function Details(props) {
       {/* Componente del encabezado */}
       <Header />
 
-      {/* Componente de detalles del perro */}
-      {/* Pasa el perro específico del estado al componente DogDetail */}
+      {/* Componente de detalles del driver */}
+      {/* Pasa el driver específico del estado al componente DriverDetail */}
       <DriverDetail driver={driver[0]} />
 
       {/* Componente del pie de página */}
