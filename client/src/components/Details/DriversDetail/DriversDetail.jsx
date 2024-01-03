@@ -2,7 +2,7 @@
 import banner from '../../../images/banner.jpg';
 import './DriversDetail.css';
 
-// Componente funcional DogDetail que recibe un objeto 'dog' como prop
+// Componente funcional DriverDetail que recibe un objeto 'driver' como prop
 function DriverDetail({ driver }) {
 
   return (
@@ -10,7 +10,7 @@ function DriverDetail({ driver }) {
       {/* Sección izquierda */}
       <div className="left">
         <div className="profile">
-          {/* Imagen y nombre del perro */}
+          {/* Imagen y nombre del driver */}
           <div className="div_driver_profile">
             <img className="image_driver_profile" src={driver?.image} alt="driver" />
           </div>
