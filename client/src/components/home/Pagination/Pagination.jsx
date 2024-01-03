@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./Pagination.css";
 
-function Pagination({ dogsPerPage, totalPosts, paginate, currentPage, setCurrentPage }) {
+function Pagination({ driversPerPage, totalPosts, paginate, currentPage, setCurrentPage }) {
   const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
   // Generar números de página
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / dogsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalPosts / driversPerPage); i++) {
     pageNumbers.push(i);
   }
 
