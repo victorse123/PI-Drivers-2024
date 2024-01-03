@@ -3,9 +3,8 @@
 import s from "./LandingPage.module.css";
 
 import {Link} from "react-router-dom";
-//import Footer from "../Footer/Footer";
 import PATHROUTES from "..//..//helpers/pathRoutes.helper";
-import Dogs from "../../images/dogs.png";
+import Drivers from "../../images/dogs.png";
 import hero_desktop_responsive from "../../images/dogs2.png";
 import hero_mobile from "../../images/dogs3.png";
 import Footer from "../Footer/Footer";
@@ -22,7 +21,7 @@ function LandingPage() {
       {/* --- header --- */}
       <header>
         <nav>
-          <span className={s.logo}>Dogs</span>
+          <span className={s.logo}>Drivers</span>
           
           
           <Link to="/home" className={s.acceder}>Ingresar</Link>
@@ -32,13 +31,13 @@ function LandingPage() {
       {/* --- main --- */}
       <main>
         <div className={s.main_left}>
-          <h1 className={s.titulo}>No hace falta una excusa para querer un <span className={s.titulo_perro}>Perro</span></h1>
-          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros amigos.</p>
+          <h1 className={s.titulo}>Un mundo, una pasion, un sentimiento <span className={s.titulo_perro}>F1</span></h1>
+          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros Drivers favoritos.</p>
         </div>
 
         <div className={s.main_right}>
           <div className={s.div_hero}>
-            <img className={s.hero} src={Dogs} alt="Dogs" />
+            <img className={s.hero} src={Drivers} alt="Drivers" />
             <img className={s.hero_responsive} src={hero_desktop_responsive} alt="hero" />
             <img className={s.hero_mobile} src={hero_mobile} alt="hero" />
           </div>
@@ -49,7 +48,7 @@ function LandingPage() {
         
         <div className={s.funciones}>
           <img className={s.icon} src={icon4} alt="icon" />
-          <Link to={PATHROUTES.HOME}><p className={s.funcion_desc}>Perros <br /> por el mundo</p></Link>
+          <Link to={PATHROUTES.HOME}><p className={s.funcion_desc}>Drivers <br /> en el mundo</p></Link>
           </div>
 
         <div className={s.funciones}>
