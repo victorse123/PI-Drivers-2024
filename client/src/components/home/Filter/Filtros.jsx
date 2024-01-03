@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FiltroTemperamento from "./FiltroTemperamento";
+import FiltroTeam from "./FiltroTeam";
 import FiltroCreado from "./FiltroCreado";
 import './Filtros.css';
 import icon from '../../../images/Icon Filter.png';
@@ -33,10 +33,10 @@ function Filtros({ currentPage, setCurrentPage }) {
               <FiltroCreado currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </div>
 
-            {/* Filtro por temperamentos */}
+            {/* Filtro por teams */}
             <div className="div_fil">
-              <span className="filtro_name">Temperamentos</span>
-              <FiltroTemperamento currentPage={currentPage} setCurrentPage={setCurrentPage} />
+              <span className="filtro_name">Teams</span>
+              <FiltroTeam currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </div>
           </div>
         </div>
