@@ -6,7 +6,7 @@ import styles from "./NavBar.module.css";
 
 const NavBar = ({ onSearch }) => {
   const addRandomCharacter = () => {
-    const randomId = Math.floor(Math.random() * 826) + 1; // Genera un ID aleatorio entre 1 y 826
+    const randomId = Math.floor(Math.random() * 508) + 1; // Genera un ID aleatorio entre 1 y 508
     onSearch(randomId.toString()); // Llama a onSearch con el ID aleatorio como cadena
   };
   return (
