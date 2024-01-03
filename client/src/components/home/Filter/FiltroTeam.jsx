@@ -1,31 +1,31 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { filterDog, getTemperament } from '../../../Redux/actions/actions';
+import { filterDriver, getTeam } from '../../../Redux/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-function FiltroTemperamento({ setCurrentPage }) {
+function FiltroTeam({ setCurrentPage }) {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch (getTemperament())
+    dispatch (getTeam())
   },[] )
-  // Disparar la acción para obtener los temperamentos al montar el componente
+  // Disparar la acción para obtener los teams al montar el componente
   // useEffect(() => {
   //   temp?.map(getTemperament());
   // }, [dispatch]);
 
-  // Obtener los temperamentos del estado global utilizando useSelector
-  const temp = useSelector(state => state.temperaments) 
+  // Obtener los teams del estado global utilizando useSelector
+  const temp = useSelector(state => state.teams) 
 
-  // Manejar el evento onChange del select para filtrar los perros por temperamento
+  // Manejar el evento onChange del select para filtrar los drivers por team
   function handleFilter() {   
     setCurrentPage(1); // Reiniciar la página actual al cambiar el filtro
-    dispatch(filterDog(event.target.value)); // Filtrar perros por temperamento
+    dispatch(filterDriver(event.target.value)); // Filtrar drivers por team
   }
   return (
     <div>
       <select onChange={handleFilter} defaultValue="">
       <option value=""disabled>Selecciona uno</option>
-      <option value="All">All Temperaments</option>
+      <option value="All">All Teams</option>
         {temp.map((t, i) => (
           <option value={t} key={i}>
             {t}
@@ -36,4 +36,4 @@ function FiltroTemperamento({ setCurrentPage }) {
   );
 }
 
-export default FiltroTemperamento;
+export default FiltroTeam;
