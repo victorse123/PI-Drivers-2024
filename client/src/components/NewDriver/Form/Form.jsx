@@ -1,5 +1,3 @@
-/* eslint-disable no-redeclare */
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { driverPost, getTeam } from '../../../Redux/actions/actions';
@@ -54,7 +52,7 @@ if (!input.nationality) {
 // Validación de la fecha de nacimiento
 if (!input.birthdate) {
   errors.birtdate = '¡Debes ponerle una fecha de nacimiento!';
-} else if (!/[0-9]+$/i.test(input.name)) {
+} else if (!/[0-9]+$/i.test(input.birthdate)) {
   errors.birthdate = 'La fecha de nacimiento solo puede contener numeros';
 } else if (parseInt(input.birthdate.length) >= 25) {
   errors.birthdate = 'La fecha de nacimiento debe tener menos de 25 caracteres';
@@ -197,46 +195,68 @@ function handleSelect(e) {
         <div>
           <div>
             <label>Apellido *</label>
-            <div classlastName={errors.lastname ? "div_input error" : "div_input"}>
-              <input classlastName='form_input' placeholder='Eje: naruto' onChange={handleChange} lastname="lastname" value={input.lastname}/>
+            <div className={errors.lastname ? "div_input error" : "div_input"}>
+              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="lastname" value={input.lastname}/>
             </div>
-            {errors.lastname && (<span classlastName='dato_incorrecto'>{errors.lastname}</span>)}
+            {errors.lastname && (<span className='dato_incorrecto'>{errors.lastname}</span>)}
           </div>
         </div>
 
         {/* ---- INPUT DESCRIPTION ---- */}
         <div>
           <div>
-            <label>Nombre *</label>
-            <div className={errors.name ? "div_input error" : "div_input"}>
-              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="name" value={input.name}/>
+            <label>Descripcion *</label>
+            <div className={errors.Description ? "div_input error" : "div_input"}>
+              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="description" value={input.description}/>
             </div>
-            {errors.name && (<span className='dato_incorrecto'>{errors.name}</span>)}
+            {errors.description && (<span className='dato_incorrecto'>{errors.description}</span>)}
           </div>
         </div>
         
-        {/* ---- INPUT TEMPERAMENT ---- */}
+        {/* ---- INPUT NATIONALITY ---- */}
         <div>
-          <label>Temperamentos</label>
+          <div>
+            <label>Pais *</label>
+            <div className={errors.Nationality ? "div_input error" : "div_input"}>
+              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="nationality" value={input.nationality}/>
+            </div>
+            {errors.nationality && (<span className='dato_incorrecto'>{errors.nationality}</span>)}
+          </div>
+        </div>
+
+        {/* ---- INPUT BIRTHDATE ---- */}
+        <div>
+          <div>
+            <label>Fecha de Nacimiento *</label>
+            <div className={errors.Birthdate ? "div_input error" : "div_input"}>
+              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="birthdate" value={input.birthdate}/>
+            </div>
+            {errors.birthdate && (<span className='dato_incorrecto'>{errors.Birthdate}</span>)}
+          </div>
+        </div>
+
+        {/* ---- INPUT TEAM ---- */}
+        <div>
+          <label>Escuderia </label>
           <div className="div_input">
-            <select className='select_form' name="temperamentos" onChange={handleSelect}>
-              {temperamentos.map((t, i) => {
+            <select className='select_form' name="escuderias" onChange={handleSelect}>
+              {team.map((t, i) => {
                 return(
                   <option className='option_form' key={i} value={t.id}>{t}</option>
                 )
               })}
             </select>
           </div>
-          <div className='div_form_final_temps'>
-  <ul className='ul_temp'>
+          <div className='div_form_final_teams'>
+  <ul className='ul_team'>
     {selectNameState.map((e, i) => {
-      const dogName = e && e.name ? e.name : '';
-      const dogId = e && e.id ? e.id : '';
+      const driverName = e && e.name ? e.name : '';
+      const driverId = e && e.id ? e.id : '';
 
       return (
         <li className='li_temp' key={i}>
-          {dogName}
-          <button className='delete_temp' type='button' value={dogId} onClick={handleDelete}>x</button>
+          {driverName}
+          <button className='delete_team' type='button' value={driverId} onClick={handleDelete}>x</button>
         </li>
                 )
               })}
@@ -244,7 +264,7 @@ function handleSelect(e) {
           </div>
         </div>
 
-        <input className={errors.name || errors.height_min || errors.height_max || errors.weight_min || errors.weight_max ? "submit none" : "submit"} type="submit" value="crear"/>
+        <input className={errors.name || errors.lastname || errors.description || errors.nationality || errors.birthdate ? "submit none" : "submit"} type="submit" value="crear"/>
 
       </form>
     </div>
