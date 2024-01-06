@@ -5,8 +5,8 @@ import s from "./LandingPage.module.css";
 import {Link} from "react-router-dom";
 import PATHROUTES from "..//..//helpers/pathRoutes.helper";
 import Drivers from "../../images/F1-13.jpg";
-import hero_desktop_responsive from "../../images/dogs2.png";
-import hero_mobile from "../../images/dogs3.png";
+import hero_desktop_responsive from "../../images/F1-14.jpg";
+import hero_mobile from "../../images/F1-15.jpg";
 import Footer from "../Footer/Footer";
 
 // ----- icons -----
