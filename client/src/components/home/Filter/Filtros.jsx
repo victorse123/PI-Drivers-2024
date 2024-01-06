@@ -2,7 +2,7 @@ import { useState } from "react";
 import FiltroTeam from "./FiltroTeam";
 import FiltroCreado from "./FiltroCreado";
 import './Filtros.css';
-import icon from '../../../images/Icon Filter.png';
+import icon from '../../../images/icons/Filtro.png';
 
 function Filtros({ currentPage, setCurrentPage }) {
 

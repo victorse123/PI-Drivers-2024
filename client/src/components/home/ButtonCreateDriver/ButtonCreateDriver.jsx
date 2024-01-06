@@ -1,7 +1,7 @@
 //import React from 'react';
 import { Link } from 'react-router-dom';
 import './ButtonCreateDriver.css';
-import driverButton from '../../../images/Dog1.png';
+import driverButton from '../../../images/F1-2.jpg';
 
 // Componente que representa un botón para crear un nuevo driver
 function ButtonCreateDriver() {
