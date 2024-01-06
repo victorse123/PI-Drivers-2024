@@ -1,91 +1,82 @@
 /* eslint-disable no-case-declarations */
 import {
-  GET_DOGS,
+  GET_DRIVERS,
   GET_DETAILS,
-  GET_TEMPERAMENT,
-  DOG_POST,
-  FILTER_DOG,
+  GET_TEAM,
+  DRIVER_POST,
+  FILTER_DRIVER,
   FILTER_CREATED,
-  DOG_WANTED,
+  DRIVER_WANTED,
   ORDER_BY_NAME,
-  ORDER_BY_WEIGHT
 } from "../actions/actions";
 
 const initialState = {
-  dogs: [],
-  allDogsFilter: [],
+  drivers: [],
+  allDriversFilter: [],
   details: [],
-  temperaments: [],
-  dogsHome: []
+  teams: [],
+  driversHome: []
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case GET_DOGS:
-      // Actualiza la lista de perros y la lista filtrada con todos los perros
+    case GET_DRIVERS:
+      // Actualiza la lista de drivers y la lista filtrada con todos los drivers
       return {
         ...state,
-        dogs: payload,
-        allDogsFilter: payload,
-        dogsHome: payload
+        drivers: payload,
+        allDriversFilter: payload,
+        driversHome: payload
       };
     case GET_DETAILS:
-      // Actualiza los detalles de un perro específico
+      // Actualiza los detalles de un driver específico
       return {
         ...state,
         details: payload
       };
-    case DOG_POST:
-      // Indica que se ha agregado un perro exitosamente
+    case DRIVER_POST:
+      // Indica que se ha agregado un driver exitosamente
       return {
         ...state
       };
-    case GET_TEMPERAMENT:
-      // Actualiza la lista de temperamentos disponibles
+    case GET_TEAM:
+      // Actualiza la lista de teams disponibles
       return {
         ...state,
-        temperaments: payload
+        teams: payload
       };
-    case FILTER_DOG:
-      // Filtra la lista de perros según el temperamento seleccionado
-      const allDogs = state.allDogsFilter;
-      const filteredDogs = payload === 'All' ? allDogs : allDogs.filter(e => e.temperament.includes(payload));
+    case FILTER_DRIVER:
+      // Filtra la lista de driver según el team seleccionado
+      const allDrivers = state.allDriversFilter;
+      const filteredDrivers = payload === 'All' ? allDrivers : allDrivers.filter(e => e.team.includes(payload));
       return {
         ...state,
-        dogs: filteredDogs
+        dogs: filteredDrivers
       };
     case FILTER_CREATED:
-      // Filtra los perros creados o no creados en la base de datos
-      const allDogsFilter = state.allDogsFilter;
-      const createdFilter = payload === 'creados' ? allDogsFilter.filter(d => d.creadoEnDB) : allDogsFilter.filter(d => !d.creadoEnDB);
+      // Filtra los drivers creados o no creados en la base de datos
+      const allDriversFilter = state.allDriversFilter;
+      const createdFilter = payload === 'creados' ? allDriversFilter.filter(d => d.creadoEnDB) : allDriversFilter.filter(d => !d.creadoEnDB);
       return {
         ...state,
-        dogs: payload === "All" ? allDogsFilter : createdFilter
+        drivers: payload === "All" ? allDriversFilter : createdFilter
       };
-    case DOG_WANTED:
-      // Actualiza la lista de perros en la página principal
+    case DRIVER_WANTED:
+      // Actualiza la lista de drivers en la página principal
       return {
         ...state,
-        dogsHome: payload
+        driversHome: payload
       };
     case ORDER_BY_NAME:
-      // Ordena la lista de perros por nombre (ascendente o descendente)
-      const orderDogsName = payload === 'name_asc' ?
-        state.dogs.slice().sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) :
-        state.dogs.slice().sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1);
+      // Ordena la lista de drivers por nombre (ascendente o descendente)
+      const orderDriversName = payload === 'name_asc' ?
+        state.drivers.slice().sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) :
+        state.drivers.slice().sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1);
       return {
         ...state,
-        dogs: orderDogsName
+        drivers: orderDriversName
       };
-    case ORDER_BY_WEIGHT:
-      // Ordena la lista de perros por peso (ascendente o descendente)
-      const orderDogsKg = payload === 'peso_asc' ?
-        state.dogs.slice().sort((a, b) => parseInt(a.weight_min) < parseInt(b.weight_min) ? -1 : 1) :
-        state.dogs.slice().sort((a, b) => parseInt(a.weight_min) > parseInt(b.weight_min) ? -1 : 1);
-      return {
-        ...state,
-        dogs: orderDogsKg
-      };
+    
     default:
       return state;
   }
