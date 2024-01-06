@@ -2,24 +2,23 @@
 import axios from 'axios';
 
 // Definición de constantes para tipos de acciones
-export const GET_DOGS = 'GET_DOGS';
+export const GET_DRIVERS = 'GET_DRIVERS';
 export const GET_DETAILS = 'GET_DETAILS';
-export const GET_TEMPERAMENT = 'GET_TEMPERAMENT';
-export const DOG_POST = 'DOG_POST';
-export const FILTER_DOG = 'FILTER_DOG';
+export const GET_TEAM = 'GET_TEAM';
+export const DRIVER_POST = 'DRIVER_POST';
+export const FILTER_DRIVER = 'FILTER_DRIVER';
 export const FILTER_CREATED = 'FILTER_CREATED';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
-export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
-export const DOG_WANTED = 'DOG_WANTED';
+export const DRIVER_WANTED = 'DRIVER_WANTED';
 
 // Función asíncrona para obtener la lista de perros
-export const getDogs = () => {
+export const getDrivers = () => {
   return async function(dispatch) {
     try {
-      let dogs = (await axios("http://localhost:3001/dogs")).data;
+      let drivers = (await axios("http://localhost:3001/drivers")).data;
       return dispatch({
-        type: GET_DOGS,
-        payload: dogs
+        type: GET_DRIVERS,
+        payload: drivers
       });
     } catch(error) {
       console.log(error);
@@ -27,11 +26,11 @@ export const getDogs = () => {
   };
 };
 
-// Función asíncrona para obtener los detalles de un perro específico
+// Función asíncrona para obtener los detalles de un driver específico
 export const getDetail = (id) => {
   return async function(dispatch) {
     try {
-      let details = (await axios(`http://localhost:3001/dogs/${id}`)).data;
+      let details = (await axios(`http://localhost:3001/drivers/${id}`)).data;
       return dispatch({
         type: GET_DETAILS,
         payload: details
@@ -42,32 +41,32 @@ export const getDetail = (id) => {
   };
 };
 
-// Función asíncrona para crear un nuevo perro
-export const dogPost = (payload) => {
+// Función asíncrona para crear un nuevo driver
+export const driverPost = (payload) => {
   return async function(dispatch) {
     try {
-      await axios.post("http://localhost:3001/dogs", payload);
-      alert("Perro creado correctamente");
+      await axios.post("http://localhost:3001/drivers", payload);
+      alert("Driver creado correctamente");
       return dispatch({
-        type: DOG_POST
+        type: DRIVER_POST
       });
     } catch (error) {
       console.log(error);
-      alert("Error al crear el perro");
+      alert("Error al crear el driver");
     }
   };
 };
 
-// Función asíncrona para obtener los temperamentos de los perros
-export const getTemperament = () => {
+// Función asíncrona para obtener los team de los drivers
+export const getTeam = () => {
   return async function(dispatch) {
     try {
-      const temperaments = (await axios.get("http://localhost:3001/temperaments")).data;
+      const teams = (await axios.get("http://localhost:3001/teams")).data;
       
       
       return dispatch({
-        type: GET_TEMPERAMENT,
-        payload: temperaments
+        type: GET_TEAM,
+        payload: teams
       });
     } catch (error) {
       console.log(error);
@@ -77,14 +76,14 @@ export const getTemperament = () => {
 
 
 
-// Función asíncrona para buscar perros por raza
-export const searchDogs = (raza) => {
+// Función asíncrona para buscar drivers 
+export const searchDrivers = (team) => {
   return async function(dispatch) {
     try {
-      let dogsWanted = (await axios(`http://localhost:3001/search?name=${raza}`)).data;
+      let driversWanted = (await axios(`http://localhost:3001/search?name=${team}`)).data;
       return dispatch({
-        type: DOG_WANTED,
-        payload: dogsWanted
+        type: DRIVER_WANTED,
+        payload: driversWanted
       });
     } catch (error) {
       console.log(error);
@@ -93,9 +92,9 @@ export const searchDogs = (raza) => {
 };
 
 // Funciones síncronas para acciones de filtrado y ordenamiento
-export const filterDog = (payload) => {
+export const filterDriver = (payload) => {
   return {
-    type: FILTER_DOG,
+    type: FILTER_DRIVER,
     payload
   };
 };
@@ -114,9 +113,3 @@ export const orderByName = (payload) => {
   };
 };
 
-export const orderByWeight = (payload) => {
-  return {
-    type: ORDER_BY_WEIGHT,
-    payload
-  };
-};
