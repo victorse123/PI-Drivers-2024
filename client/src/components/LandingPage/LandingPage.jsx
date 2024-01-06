@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 
 // ----- icons -----
 import icon3 from "../../images/icons/F1-8.png";
-import icon4 from "../../images/icons/Huellas.png";
+import icon4 from "../../images/icons/F1-6.png";
 import icon5 from "../../images/icons/Correa.png";
 
 function LandingPage() {
