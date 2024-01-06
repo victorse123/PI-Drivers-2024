@@ -6,7 +6,7 @@ import ButtonCreateDriver from './ButtonCreateDriver/ButtonCreateDriver';
 import Filtros from './Filter/Filtros';
 import Footer from '../Footer/Footer';
 import { useDispatch } from 'react-redux';
-import { orderByName, orderByWeight } from '../../Redux/actions/actions';
+import { orderByName } from '../../Redux/actions/actions';
 import {} from './Home.css';
 
 function Home() {
@@ -19,9 +19,6 @@ function Home() {
     if (value === 'name_asc' || value === 'name_des') {
       dispatch(orderByName(value));
     } 
-    if (value === 'peso_asc' || value === 'peso_des') {
-      dispatch(orderByWeight(value));
-    }
   }
 
   const [currentPage, setCurrentPage] = useState(1);
