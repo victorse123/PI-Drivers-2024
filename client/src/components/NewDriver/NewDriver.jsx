@@ -3,12 +3,12 @@
 import Header from '../Header/Header';
 import Form from './Form/Form';
 import Footer from '../Footer/Footer';
-import './NewDog.module.css'; // Estilos del componente
+import './NewDriver.module.css'; // Estilos del componente
 
-function NewDog() {
-  // Estructura del componente NewDog
+function NewDriver() {
+  // Estructura del componente NewDriver
   return (
-    <div className='new_dog'> {/* Contenedor principal */}
+    <div className='new_driver'> {/* Contenedor principal */}
       <Header /> {/* Componente del encabezado */}
       <Form /> {/* Componente del formulario */}
       <Footer /> {/* Componente del pie de página */}
@@ -16,4 +16,4 @@ function NewDog() {
   );
 }
 
-export default NewDog; // Exportación del componente NewDog
+export default NewDriver; // Exportación del componente NewDog
