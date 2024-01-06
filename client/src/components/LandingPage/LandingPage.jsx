@@ -32,7 +32,7 @@ function LandingPage() {
       <main>
         <div className={s.main_left}>
           <h1 className={s.titulo}>Un mundo, una pasion, un sentimiento <span className={s.titulo_perro}>F1</span></h1>
-          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros Drivers favoritos.</p>
+          <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros Pilotos favoritos.</p>
         </div>
 
         <div className={s.main_right}>
@@ -48,7 +48,7 @@ function LandingPage() {
         
         <div className={s.funciones}>
           <img className={s.icon} src={icon4} alt="icon" />
-          <Link to={PATHROUTES.HOME}><p className={s.funcion_desc}>Drivers <br /> en el mundo</p></Link>
+          <Link to={PATHROUTES.HOME}><p className={s.funcion_desc}>Pilotos <br /> por el mundo</p></Link>
           </div>
 
         <div className={s.funciones}>
