@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar/SearchBar';
 import './Header.css';
-import menu from '../../images/Menu.png';
+import menu from '../../images/icons/Menu.png';
 
 function Header() {
   // Estado para controlar la visibilidad del menú
