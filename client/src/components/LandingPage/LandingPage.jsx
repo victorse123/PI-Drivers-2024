@@ -31,7 +31,7 @@ function LandingPage() {
       {/* --- main --- */}
       <main>
         <div className={s.main_left}>
-          <h1 className={s.titulo}>Un mundo, una pasion, un sentimiento <span className={s.titulo_perro}>F1</span></h1>
+          <h1 className={s.titulo}>Un mundo, una pasion, un sentimiento <span className={s.titulo_driver}>F1</span></h1>
           <p className={s.sub_titulo}>Una app creada para conocer aspectos importantes de nuestros Pilotos favoritos.</p>
         </div>
 

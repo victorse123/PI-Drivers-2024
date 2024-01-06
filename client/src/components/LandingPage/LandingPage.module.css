@@ -15,7 +15,7 @@ header {
     font-size: 56px;
     font-weight: 1000;
     letter-spacing: -1px;
-    color: var(--azul-oscuro);
+    color: rgb(248, 4, 4);
   }
   .acceder {
     font-family: 'Montserrat';
@@ -24,7 +24,7 @@ header {
     text-decoration: none;
     letter-spacing: 0.5%;
     color: var(--blanco);
-    background-color: var(--naranja);
+    background-color: var(--azul-oscuro);
     border: none;
     border-radius: 8px;
     padding: 12px 22px;
@@ -32,7 +32,7 @@ header {
     cursor: pointer;
   }
   .acceder:hover {
-    background-color: var(--naranja-hover);
+    background-color: var(--azul-oscuro);
   }
   
   main {
@@ -55,8 +55,8 @@ header {
     letter-spacing: 0.5%;
     color: var(--azul-oscuro);
   }
-  .titulo_perro {
-    color: var(--naranja);
+  .titulo_driver {
+    color: rgb(248, 4, 4);
   }
   .sub_titulo {
     font-family: 'Montserrat';
