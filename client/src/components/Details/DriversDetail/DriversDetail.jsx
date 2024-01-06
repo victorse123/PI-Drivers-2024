@@ -1,5 +1,5 @@
 // Importar las imágenes y estilos necesarios
-import banner from '../../../images/banner.jpg';
+import banner from '../../../images/F1.jpg';
 import './DriversDetail.css';
 
 // Componente funcional DriverDetail que recibe un objeto 'driver' como prop
