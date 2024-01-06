@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 //import React from 'react';
-import imageDriverDefault from '../../../../images/image-dog-default.jpg'
+import imageDriverDefault from '../../../../images/F1-3.jpg'
 import './Card.css';
 
 function Card({ image, name, lastname  }) {
