@@ -4,8 +4,8 @@
   overflow: hidden;
 }
 .card_image_dog {
-  /* max-width: 240px; */
-  /* height: 172px; */
+  max-width: 240px; 
+  height: 172px; 
   width: 100%;
 }
 .div_info_card {
