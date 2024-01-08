@@ -185,7 +185,7 @@ function handleSelect(e) {
           <div>
             <label>Nombre *</label>
             <div className={errors.name ? "div_input error" : "div_input"}>
-              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="name" value={input.name}/>
+              <input className='form_input' placeholder='Eje: Victor' onChange={handleChange} name="name" value={input.name}/>
             </div>
             {errors.name && (<span className='dato_incorrecto'>{errors.name}</span>)}
           </div>
@@ -196,7 +196,7 @@ function handleSelect(e) {
           <div>
             <label>Apellido *</label>
             <div className={errors.lastname ? "div_input error" : "div_input"}>
-              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="lastname" value={input.lastname}/>
+              <input className='form_input' placeholder='Eje: Sepulveda' onChange={handleChange} name="lastname" value={input.lastname}/>
             </div>
             {errors.lastname && (<span className='dato_incorrecto'>{errors.lastname}</span>)}
           </div>
@@ -207,7 +207,7 @@ function handleSelect(e) {
           <div>
             <label>Descripcion *</label>
             <div className={errors.Description ? "div_input error" : "div_input"}>
-              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="description" value={input.description}/>
+              <input className='form_input' placeholder='Eje: El mejor' onChange={handleChange} name="description" value={input.description}/>
             </div>
             {errors.description && (<span className='dato_incorrecto'>{errors.description}</span>)}
           </div>
@@ -218,7 +218,7 @@ function handleSelect(e) {
           <div>
             <label>Pais *</label>
             <div className={errors.Nationality ? "div_input error" : "div_input"}>
-              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="nationality" value={input.nationality}/>
+              <input className='form_input' placeholder='Eje: Colombia' onChange={handleChange} name="nationality" value={input.nationality}/>
             </div>
             {errors.nationality && (<span className='dato_incorrecto'>{errors.nationality}</span>)}
           </div>
@@ -229,7 +229,7 @@ function handleSelect(e) {
           <div>
             <label>Fecha de Nacimiento *</label>
             <div className={errors.Birthdate ? "div_input error" : "div_input"}>
-              <input className='form_input' placeholder='Eje: naruto' onChange={handleChange} name="birthdate" value={input.birthdate}/>
+              <input className='form_input' placeholder='Eje: 14/01/1985' onChange={handleChange} name="birthdate" value={input.birthdate}/>
             </div>
             {errors.birthdate && (<span className='dato_incorrecto'>{errors.Birthdate}</span>)}
           </div>
