@@ -32,7 +32,7 @@
 
 //import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./card.module.css"
+import styles from "./Card.css"
 
 const Card = (props) => {
 const {name,image, lastname, teams, id} = props;
