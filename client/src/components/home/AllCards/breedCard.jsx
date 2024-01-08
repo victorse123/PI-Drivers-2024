@@ -3,8 +3,8 @@ import placeholderImg from '../../../images/profileHolder.png'
 import { Link } from "react-router-dom";
 
 const BreedCard = ({ breed }) => {
-  // Extraer las primeras tres temperamentos o definir 'Gentle' si no hay datos
-  let firstTemps = breed.temperament ? breed.temperament.replace(' ', '').split(',') : 'Gentle';
+  // Extraer las primeras tres teams o definir 'Gentle' si no hay datos
+  let firstTemps = breed.team ? breed.team.replace(' ', '').split(',') : 'Gentle';
 
   return (
     <div className={container}>
@@ -15,7 +15,7 @@ const BreedCard = ({ breed }) => {
         </div>
         <div className={midPanel}>
           <div className={subTitleBox}>
-            {/* Mostrar los primeros tres temperamentos o 'Gentle' */}
+            {/* Mostrar los primeros tres teams o 'Gentle' */}
             <h5 className={subTitle}>
               {firstTemps === 'Gentle' ?
                 'Gentle' :
