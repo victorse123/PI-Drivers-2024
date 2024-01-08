@@ -35,12 +35,12 @@ import { Link } from "react-router-dom";
 import styles from "./Card.css"
 
 const Card = (props) => {
-const {name,image, lastname, teams, id} = props;
-
+const {id, name,image, lastname, teams} = props;
 
 return (
     <div className={styles.card}>
       <div className={styles.top}>
+    
       <img src={image}/>
       <Link to={`/detail/${id}`}>
      <div className={styles.title}>
