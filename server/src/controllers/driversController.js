@@ -37,10 +37,10 @@ const getAllDrivers = async () => {
       teams,
     };
   });
-  //fusiona ambos array
+  //fusiona ambos array y devolverlos
   return [...driversBDDWithSource, ...driverApi];
 };
-
+// Crear un nuevo conductor con transacción para garantizar la integridad
 const postDriver = async ({
   name,
   lastname,
