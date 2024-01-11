@@ -68,6 +68,7 @@ const getAllTeams = async () => {
     if (teamCount === 0) {
       // Obtener equipos desde la API
       const { data: teamsFromAPI } = await axios.get(`${URL}/teams`);
+      // Crear registros de equipos en la base de datos utilizando Promise.all
       await Promise.all(
         teamsFromAPI.map(async (team) => {
           await Team.create({
@@ -77,7 +78,7 @@ const getAllTeams = async () => {
         })
       );
     }
-
+// Obtener todos los equipos desde la base de datos
     const teamsBDD = await Team.findAll();
     return teamsBDD;
   } catch (error) {
