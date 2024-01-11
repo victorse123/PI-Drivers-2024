@@ -76,6 +76,7 @@ const {
   // 📍 GET | /drivers/:idDriver
   const getDetailDriverHandler = async (req, res) => {
     const { id } = req.params;
+    // Determinar la fuente de datos basándose en si el ID es un número o no
     const source = isNaN(id) ? "bdd" : "api";
   
     try {
