@@ -25,7 +25,7 @@ const getAllDrivers = async () => {
     ...driver,
     source: "API",
   }));
-
+// Mapear los conductores de la base de datos y agregar la fuente y los equipos
   const driversBDDWithSource = driversBDD.map((driver) => {
     const teams = driver.Teams.map((team) => team.name).join(", "); //trae los teams en un array=> Teams: []
 
