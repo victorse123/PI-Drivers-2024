@@ -149,7 +149,7 @@ const getDriverById = async (id, source) => {
   }
 };
 
-//responseBDD=> [
+// responseBDD=> [
 // [0]   Driver {
 //   [0]     dataValues: {
 //   [0]       id: '82fc7596-5624-4ebb-bb6a-746f5444a62f',
@@ -189,7 +189,7 @@ const infoCleaner = (array) => {
   });
 };
 
-module.exports = { getDriverById, getAllDrivers, postDriver };
+module.exports = { getDriverByName, getDriverById, getAllDrivers, postDriver };
 
 
 // Este controlador realiza varias operaciones de interacción con los controladores y la API externa. Veamos algunas observaciones:
