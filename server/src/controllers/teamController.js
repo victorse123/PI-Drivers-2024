@@ -59,7 +59,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const URL = process.env.URL_API;
-
+// Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
 const getAllTeams = async () => {
   try {
     const teamCount = await Team.count();
