@@ -64,7 +64,7 @@ const getAllTeams = async () => {
   try {
     // Contar la cantidad de equipos en la base de datos
     const teamCount = await Team.count();
-
+// Si no hay equipos en la base de datos, sincronizar con la API
     if (teamCount === 0) {
       const { data: teamsFromAPI } = await axios.get(`${URL}/teams`);
       await Promise.all(
