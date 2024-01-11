@@ -4,7 +4,7 @@ const {
     getDriverById,
     getDriverByName,
   } = require("..//controllers/driversController");
-  
+  // Controlador para obtener conductores por nombre o todos los conductores
   // by name y getAll de api y bdd
   const getDriversHandler = async (req, res) => {
     const { name } = req.query;
