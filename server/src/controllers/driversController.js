@@ -9,6 +9,7 @@ const URL = process.env.URL_API;
 
 //GET ALL DRIVERS DE API Y BDD
 const getAllDrivers = async () => {
+  // Obtener todos los conductores de la base de datos
   const driversBDD = await Driver.findAll({
     include: {
       model: Team,
