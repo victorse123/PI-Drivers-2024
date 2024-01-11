@@ -11,10 +11,12 @@ const {
   
     try {
       const allDrivers = await getAllDrivers();
+       // Filtrar conductores por nombre si se proporciona el parámetro 'name'
       if (name) {
         const driversByName = allDrivers.filter((driver) =>
           driver.name.toLowerCase().startsWith(name.toLowerCase())
         );
+        // Limitar la respuesta a 15 conductores
         if (driversByName.length > 0) {
           const quinceDrivers = driversByName.slice(0, 15);
   
@@ -33,7 +35,7 @@ const {
         //   }
       } else {
         // const allDrivers = await getAllDrivers();
-  
+  // Si no se proporciona 'name', devolver todos los conductores
         return res.status(200).json(allDrivers);
       }
     } catch (error) {
@@ -42,6 +44,7 @@ const {
   };
   
   //Post driver
+  // Controlador para crear un nuevo conductor
   const postDriverHandler = async (req, res) => {
     const { name, lastname, description, image, nationality, dob, teams } =
       req.body;
