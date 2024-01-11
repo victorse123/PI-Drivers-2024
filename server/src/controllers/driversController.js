@@ -95,7 +95,7 @@ const apiData = dataCleaned || [];
 const driverBDD = await Driver.findAll({
   where:{
     name:{
-      [Op.iLike]: `%${nameAdjusted}`
+      //[Op.iLike]: `%${nameAdjusted}`
     }
   },
   include: [
@@ -109,6 +109,8 @@ through: {
   ]
 })
 };
+// Se debe devolver el resultado de la búsqueda en la base de datos
+return { apiData, driverBDD };
 
 //Controller para get Driver Detail
 const getDriverById = async (id, source) => {
