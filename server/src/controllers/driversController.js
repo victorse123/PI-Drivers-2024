@@ -77,6 +77,7 @@ const postDriver = async ({
     await transaction.commit();
     return newDriver;
   } catch (error) {
+     // Revertir la transacción en caso de error
     await transaction.rollback();
     throw error;
   }
