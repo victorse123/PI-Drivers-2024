@@ -83,32 +83,32 @@ const postDriver = async ({
   }
 };
 
-// const getDriverByName = async (name) => {
-//   const nameAdjusted = name[0].toUpperCase() + name.slice(1).toLowerCase();
+const getDriverByName = async (name) => {
+  const nameAdjusted = name[0].toUpperCase() + name.slice(1).toLowerCase();
 
-//   const response = await axios.get(`${URL}?name.forename=${nameAdjusted}`);
+  const response = await axios.get(`${URL}?name.forename=${nameAdjusted}`);
 
-// const data= response.data;
-// const dataCleaned = infoCleaner(data)
-// const apiData = dataCleaned || [];
+const data= response.data;
+const dataCleaned = infoCleaner(data)
+const apiData = dataCleaned || [];
 
-// const driverBDD = await Driver.findAll({
-//   where:{
-//     name:{
-//       [Op.iLike]: `%${nameAdjusted}`
-//     }
-//   },
-//   include: [
-//   {
-//     model: Team,
-//   attributes: ["name"],
-// through: {
-//   attributes: []
-// }
-// }
-//   ]
-// })
-// };
+const driverBDD = await Driver.findAll({
+  where:{
+    name:{
+      [Op.iLike]: `%${nameAdjusted}`
+    }
+  },
+  include: [
+  {
+    model: Team,
+  attributes: ["name"],
+through: {
+  attributes: []
+}
+}
+  ]
+})
+};
 
 //Controller para get Driver Detail
 const getDriverById = async (id, source) => {
