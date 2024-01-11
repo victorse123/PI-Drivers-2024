@@ -50,9 +50,11 @@ const {
       req.body;
   
     try {
+      // Verificar que se proporcionen los datos requeridos
       if (!name || !lastname || !description || !dob) {
         return res.status(400).json({ error: "Missing required data..." });
       }
+       // Crear un nuevo conductor
       const newDriver = await postDriver({
         name,
         lastname,
@@ -70,7 +72,7 @@ const {
       res.status(400).json({ error: error.message });
     }
   };
-  
+  // Controlador para obtener detalles de un conductor por ID
   // 📍 GET | /drivers/:idDriver
   const getDetailDriverHandler = async (req, res) => {
     const { id } = req.params;
