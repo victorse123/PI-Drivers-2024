@@ -82,7 +82,7 @@ const postDriver = async ({
     throw error;
   }
 };
-
+// Obtener detalles del conductor por nombre desde la API
 const getDriverByName = async (name) => {
   const nameAdjusted = name[0].toUpperCase() + name.slice(1).toLowerCase();
 
