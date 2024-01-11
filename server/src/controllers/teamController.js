@@ -62,6 +62,7 @@ const URL = process.env.URL_API;
 // Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
 const getAllTeams = async () => {
   try {
+    // Contar la cantidad de equipos en la base de datos
     const teamCount = await Team.count();
 
     if (teamCount === 0) {
