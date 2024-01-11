@@ -200,6 +200,8 @@ module.exports = { getDriverByName, getDriverById, getAllDrivers, postDriver };
 
 //Método postDriver: Crea un nuevo conductor en la base de datos local junto con los equipos asociados. Utiliza transacciones para garantizar la integridad de los datos.
 
+//Metodo getDriverByName: Obtiene detalles del conductor por nombre desde la API
+
 //Método getDriverById: Obtiene un conductor por su ID, ya sea de la API externa o de la base de datos local. Realiza un manejo adecuado para obtener y estructurar la información según la fuente especificada.
 
 //Función infoCleaner: Limpia la información de la API externa, seleccionando solo los campos necesarios para la aplicación.
