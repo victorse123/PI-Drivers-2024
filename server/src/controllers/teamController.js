@@ -97,3 +97,27 @@ module.exports = { getAllTeams };
 //Si no hay equipos, realiza una solicitud a la API externa para obtener datos de conductores.
 //Filtra y procesa la información obtenida de la API, extrayendo los equipos de los conductores.
 //Elimina duplicados y crea instancias de Team en la base de datos local.
+
+// const { Team } = require("../db");: Importa el modelo Team de tu base de datos.
+
+// const axios = require("axios");: Importa la librería Axios para realizar solicitudes HTTP.
+
+// const dotenv = require("dotenv"); dotenv.config();: Importa y configura el módulo dotenv para cargar variables de entorno desde un archivo .env.
+
+// const URL = process.env.URL_API;: Obtiene la URL de la API desde las variables de entorno.
+
+// const getAllTeams = async () => {: Define la función getAllTeams como una función asíncrona.
+
+// const teamCount = await Team.count();: Cuenta la cantidad de equipos en la base de datos.
+
+// if (teamCount === 0) { ... }: Verifica si no hay equipos en la base de datos.
+
+// const { data: teamsFromAPI } = await axios.get(${URL}/teams);: Obtiene los equipos desde la API.
+
+// await Promise.all(...);: Utiliza Promise.all para ejecutar de forma asíncrona la creación de registros de equipos en la base de datos.
+
+// const teamsBDD = await Team.findAll();: Obtiene todos los equipos desde la base de datos después de la sincronización.
+
+// return teamsBDD;: Devuelve los equipos obtenidos desde la base de datos.
+
+// } catch (error) { ... }: Manejo de errores en caso de falla al obtener equipos de la API o al interactuar con la base de datos.
