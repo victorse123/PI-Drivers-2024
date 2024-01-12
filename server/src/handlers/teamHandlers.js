@@ -6,6 +6,7 @@ async function getAllTeamsHandler(req, res) {
     const allTeams = await getAllTeams();
     return res.status(200).json(allTeams);
   } catch (error) {
+    // Manejar errores y devolver un estado 400 (Bad Request) con un mensaje de error
     return res.status(400).json({ error: error.message });
   }
 }
