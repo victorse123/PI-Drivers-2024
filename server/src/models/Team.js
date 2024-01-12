@@ -22,3 +22,15 @@ module.exports = (sequelize) => {
     
   );
 };
+
+// const { DataTypes } = require("sequelize");: Importa el objeto DataTypes de Sequelize para definir los tipos de datos de los campos en el modelo.
+
+// module.exports = (sequelize) => { ... };: Exporta una función que define el modelo del equipo y toma como parámetro la instancia de Sequelize.
+
+// sequelize.define("Team", { ... }, { timestamps: false });: Define el modelo "Team" con sus atributos y opciones. timestamps: false desactiva la creación automática de campos createdAt y updatedAt.
+
+// id: { ... }: Define el campo id como un entero no nulo, clave primaria y autoincremental.
+
+// name: { ... }: Define el campo name como una cadena de texto no nula.
+
+// { timestamps: false }: Opción que desactiva la creación automática de campos createdAt y updatedAt.
