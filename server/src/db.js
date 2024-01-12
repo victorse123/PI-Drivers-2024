@@ -1,10 +1,13 @@
+// Importar el módulo dotenv para cargar variables de entorno desde un archivo .env
 require("dotenv").config();
+// Importar Sequelize y módulos relacionados
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 // const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+// Obtener la cadena de conexión a la base de datos desde la variable de entorno
 const dataBaseDeploy = process.env.DATA_BASE_DEPLOY;
-
+// Importar los modelos de la base de datos
 const DriverModel = require("./models/Driver");
 const TeamModel = require("./models/Team");
 
@@ -15,10 +18,10 @@ const TeamModel = require("./models/Team");
 //     native: false,
 //   }
 // );
-
+// Crear una instancia de Sequelize con la cadena de conexión
 const sequelize = new Sequelize(dataBaseDeploy, {
-  logging: false,
-  native: false,
+  logging: false, // Desactivar los mensajes de registro de Sequelize
+  native: false, // Desactivar la compatibilidad nativa con Node.js
 });
 
 // Obtener el nombre del archivo actual
@@ -38,22 +41,22 @@ fs.readdirSync(path.join(__dirname, "/models"))
 
 // Iterar sobre los modelos y llamar a la función de definición para cada uno
 modelDefiners.forEach((model) => model(sequelize));
+// Convertir los nombres de los modelos a mayúsculas
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [
   entry[0][0].toUpperCase() + entry[0].slice(1),
   entry[1],
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
-
+// Llamar a las funciones de definición de modelos para Driver y Team
 DriverModel(sequelize);
-
 TeamModel(sequelize);
-
+// Obtener los modelos de la base de datos
 const { Driver, Team } = sequelize.models;
-
+// Definir la relación muchos a muchos entre Driver y Team a través de la tabla intermedia DriverTeam
 Driver.belongsToMany(Team, { through: "DriverTeam", timestamps: false });
 Team.belongsToMany(Driver, { through: "DriverTeam", timestamps: false });
-
+// Exportar los modelos y la instancia de conexión para su uso en otras partes de la aplicación
 module.exports = {
   Driver,
   Team,
