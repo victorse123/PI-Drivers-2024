@@ -14,3 +14,19 @@ async function getAllTeamsHandler(req, res) {
 module.exports = {
   getAllTeamsHandler,
 };
+
+// const { getAllTeams } = require("../controllers/teamController");: Importa la función getAllTeams del controlador teamController.
+
+// async function getAllTeamsHandler(req, res) {: Define una función asíncrona llamada getAllTeamsHandler que manejará la solicitud HTTP.
+
+// try { ... }: Inicia un bloque try para manejar operaciones que podrían generar errores.
+
+// const allTeams = await getAllTeams();: Llama a la función getAllTeams para obtener todos los equipos de la base de datos.
+
+// return res.status(200).json(allTeams);: Devuelve los equipos en la respuesta con un estado HTTP 200 (OK).
+
+// } catch (error) { ... }: Captura cualquier error que ocurra dentro del bloque try.
+
+// return res.status(400).json({ error: error.message });: Devuelve un estado HTTP 400 (Bad Request) con un mensaje de error en caso de que ocurra un error.
+
+// module.exports = { getAllTeamsHandler };: Exporta la función getAllTeamsHandler para que pueda ser utilizada en otras partes del código.
