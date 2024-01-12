@@ -38,3 +38,24 @@ server.use((req, res, next) => {
 });
 // Exportar la instancia de Express para ser utilizada en otros archivos
 module.exports = server;
+
+
+// const express = require("express");: Importa la biblioteca Express.
+
+// const router = require("./routes");: Importa el enrutador definido en routes/index.js.
+
+// const server = express();: Crea una instancia de Express llamada server.
+
+// server.use(morgan("dev"));: Configura el middleware Morgan para registrar solicitudes en la consola durante el desarrollo.
+
+// server.use(express.json());: Configura el middleware para manejar datos JSON en las solicitudes.
+
+// server.use(cors());: Configura el middleware para permitir solicitudes desde cualquier origen (CORS).
+
+// server.use(bodyParser.json());: Configura el middleware para analizar el cuerpo de las solicitudes como JSON.
+
+// server.use(router);: Configura el enrutador para manejar las rutas definidas en routes/index.js.
+
+// server.use((req, res, next) => { ... });: Middleware adicional para habilitar y configurar el manejo de solicitudes CORS en el servidor.
+
+// module.exports = server;: Exporta la instancia de Express para ser utilizada en otros archivos.
