@@ -1,5 +1,5 @@
 const { getAllTeams } = require("../controllers/teamController");
-
+// Controlador para obtener todos los equipos
 async function getAllTeamsHandler(req, res) {
   try {
     const allTeams = await getAllTeams();
