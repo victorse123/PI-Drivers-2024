@@ -1,5 +1,6 @@
 // configuracion del servidor y sincronizacion con la base de datos
 
+// Importar el servidor y la conexión a la base de datos
 const server = require("./src/server");
 const { conn } = require("./src/db.js");
 
