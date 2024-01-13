@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 
 // Sincronizar la base de datos y luego iniciar el servidor
 conn
-  .sync({ force: false })
+  .sync({ force: false }) // sync() sincroniza los modelos con la base de datos, { force: false } evita que se eliminen los datos existentes
   .then(() => {
     server.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
