@@ -11,6 +11,7 @@ dotenv.config();
 // Obtener el puerto del entorno o establecerlo en 3001 si no está definido
 const PORT = process.env.PORT || 3001;
 
+// Sincronizar la base de datos y luego iniciar el servidor
 conn
   .sync({ force: false })
   .then(() => {
