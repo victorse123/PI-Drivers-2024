@@ -4,6 +4,7 @@
 const server = require("./src/server");
 const { conn } = require("./src/db.js");
 
+// Importar dotenv para cargar variables de entorno desde un archivo .env
 const dotenv = require("dotenv");
 dotenv.config();
 
