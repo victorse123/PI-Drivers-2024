@@ -11,13 +11,6 @@ const dataBaseDeploy = process.env.DATA_BASE_DEPLOY;
 const DriverModel = require("./models/Driver");
 const TeamModel = require("./models/Team");
 
-// const sequelize = new Sequelize(
-//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`,
-//   {
-//     logging: false,
-//     native: false,
-//   }
-// );
 // Crear una instancia de Sequelize con la cadena de conexión
 const sequelize = new Sequelize(dataBaseDeploy, {
   logging: false, // Desactivar los mensajes de registro de Sequelize
