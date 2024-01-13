@@ -8,6 +8,7 @@ const { conn } = require("./src/db.js");
 const dotenv = require("dotenv");
 dotenv.config();
 
+// Obtener el puerto del entorno o establecerlo en 3001 si no está definido
 const PORT = process.env.PORT || 3001;
 
 conn
