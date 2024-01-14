@@ -110,33 +110,35 @@ const postDriver = async ({
 // })
 // };
 
-const getDriverByName = async (name) => {
-  const nameAdjusted = name[0].toUpperCase() + name.slice(1).toLowerCase();
+// const getDriverByName = async (name) => {
+//   const nameAdjusted = name[0].toUpperCase() + name.slice(1).toLowerCase();
 
-  try {
-    const response = await axios.get(`${URL}?name.forename=${nameAdjusted}`);
-    const data = response.data;
-    const dataCleaned = infoCleaner(data);
-    const apiData = dataCleaned || [];
+//   try {
+//     const response = await axios.get(`${URL}?name.forename=${nameAdjusted}`);
+//     const data = response.data;
+//     const dataCleaned = infoCleaner(data);
+//     const apiData = dataCleaned || [];
 
-    const driverBDD = await Driver.findAll({
-      where: {
-        name: {
-          //[Op.iLike]: `%${nameAdjusted}`
-        },
-      },
-      include: [
-        {
-          model: Team,
-          attributes: ["name"],
-          through: {
-            attributes: [],
-          },
-        },
-      ],
-    });
+//     const driverBDD = await Driver.findAll({
+//       where: {
+//         name: {
+//           //[Op.iLike]: `%${nameAdjusted}`
+//         },
+//       },
+//       include: [
+//         {
+//           model: Team,
+//           attributes: ["name"],
+//           through: {
+//             attributes: [],
+//           },
+//         },
+//       ],
+//     });
+//   }
+// }
 // Se debe devolver el resultado de la búsqueda en la base de datos
-return { apiData, driverBDD };
+//return { apiData, driverBDD };
 
 // Obtener detalles del conductor por ID y fuente (API o BDD)
 //Controller para get Driver Detail
@@ -218,7 +220,7 @@ const infoCleaner = (array) => {
   });
 };
 
-module.exports = { getDriverByName, getDriverById, getAllDrivers, postDriver };
+module.exports = { getDriverById, getAllDrivers, postDriver };
 
 
 // Este controlador realiza varias operaciones de interacción con los controladores y la API externa. Veamos algunas observaciones:
