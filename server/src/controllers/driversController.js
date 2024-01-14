@@ -20,7 +20,7 @@ const getAllDrivers = async () => {
     },
   });
 // Obtener información de la API y limpiarla
-  const infoApi = (await axios.get(`${URL}`)).data;
+  const infoApi = (await axios.get(`${URL}`)).data
   const driverApi = infoCleaner(infoApi).map((driver) => ({
     ...driver,
     source: "API",
@@ -111,6 +111,7 @@ through: {
 };
 // Se debe devolver el resultado de la búsqueda en la base de datos
 return { apiData, driverBDD };
+
 // Obtener detalles del conductor por ID y fuente (API o BDD)
 //Controller para get Driver Detail
 const getDriverById = async (id, source) => {
