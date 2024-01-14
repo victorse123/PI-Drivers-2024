@@ -20,7 +20,7 @@ const getAllDrivers = async () => {
     },
   });
 // Obtener información de la API y limpiarla
-  const infoApi = (await axios.get(`${URL}`)).data
+  const infoApi = (await axios.get(`${URL}`)).data;
   const driverApi = infoCleaner(infoApi).map((driver) => ({
     ...driver,
     source: "API",
