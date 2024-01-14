@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import { useEffect } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import Header from '../Header/Header';
