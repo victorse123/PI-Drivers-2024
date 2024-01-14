@@ -50,7 +50,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import styles from "./detail.module.css"
+import styles from "./Detail.css"
 import defaultImage from './default-image.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { getDriverByID } from '../../redux/actions';
