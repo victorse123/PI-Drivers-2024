@@ -50,8 +50,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import styles from "./Detail.css"
-import defaultImage from './default-image.jpg'
+import styles from "..//Details/Details.css";
+import defaultImage from '..//..//images/f1.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDriverByID } from '../../redux/actions';
 import style from "../Cards/cards.module.css"
