@@ -51,7 +51,7 @@ import { useParams, Link } from 'react-router-dom';
 import styles from "..//Details/Details.css";
 import defaultImage from '..//..//images/F1.jpg';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDriverByID } from '../../redux/actions';
+import { getDriverByID } from '../../Redux/actions/actions.js';
 import style from "..//home/AllCards/AllCards.css"
 
 const Detail = () => {
