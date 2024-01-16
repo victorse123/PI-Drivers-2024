@@ -195,7 +195,7 @@ export const filterByTeam = (team) => {
 };
 
 export const getTeams = () => {
-  // const endpoint = "http://localhost:3001/teams";
+  //const endpoint = "http://localhost:3001/teams";
   const endpoint = `${URL}/teams`;
   return async (dispatch) => {
     try {

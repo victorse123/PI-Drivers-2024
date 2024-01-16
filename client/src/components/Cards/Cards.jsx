@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDrivers } from '../../../Redux/actions/actions';
-import Card from './Card/Card';
+import { getDrivers } from '../../Redux/actions/actions';
+import Card from '../Card/Card';
 import { Link } from 'react-router-dom';
-import Loader from '../Loader/Loader';
-import Pagination from '..//Pagination/Pagination';
+import Loader from '../home/Loader/Loader';
+import Pagination from '../home/Pagination/Pagination';
 import './AllCards.css';
 
 function AllCards({ currentPage, setCurrentPage, driversPerPage, indexOfFirstDriver, indexOfLastDriver }) {

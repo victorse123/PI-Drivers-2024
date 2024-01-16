@@ -98,7 +98,7 @@ import {
   FILTER_TEAM,
   ADD_FAV,
   REMOVE_FAV,
-} from "./actions";
+} from "..//actions/actions";
 
 const initialState = {
   allDrivers: [],
