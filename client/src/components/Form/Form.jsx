@@ -283,7 +283,7 @@ import styles from "..//Form/Form.css"
 import { Link } from "react-router-dom";
 import validation from "../..//Redux/Validation/validation";
 import { useDispatch, useSelector } from "react-redux";
-import { getTeams } from "../../redux/actions";
+import { getTeams } from "../..//Redux/actions/actions";
 
 export default function FormPage(){
 const[teams, setTeams] = useState([])
