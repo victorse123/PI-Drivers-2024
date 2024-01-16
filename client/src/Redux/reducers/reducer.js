@@ -1,3 +1,5 @@
+/* eslint-disable no-fallthrough */
+/* eslint-disable no-case-declarations */
 // /* eslint-disable no-case-declarations */
 // import {
 //   GET_DRIVERS,

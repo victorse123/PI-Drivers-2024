@@ -74,8 +74,8 @@ import  React from "react";
 import NavBar from "../NavBar/NavBar"
 import Cards from "../Cards/Cards"
 import { useDispatch, useSelector } from "react-redux";
-import {getDrivers, getDriverByName,order, getTeams, clearFilters, filterOrigin, filterByTeam} from "../../redux/actions"
-import styles from "./home.module.css"
+import {getDrivers, getDriverByName,order, getTeams, clearFilters, filterOrigin, filterByTeam} from "..//..//Redux/actions/actions";
+import styles from "./Home.css"
 
 
 const Home = () => {
