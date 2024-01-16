@@ -130,7 +130,7 @@ export const CLEAR = "CLEAR";
 export const ORIGIN = "ORIGIN";
 export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
-const URL = import.meta.env.VITE_BACK_URL;
+const URL = import.meta.env;
 
 export const getDrivers = () => {
   const endpoint = `${URL}/drivers`;
