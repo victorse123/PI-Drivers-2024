@@ -52,7 +52,7 @@ import styles from "..//Details/Details.css";
 import defaultImage from '..//..//images/F1.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDriverByID } from '../../Redux/actions/actions.js';
-import style from "..//home/AllCards/AllCards.css"
+import style from "..//Cards/Cards.css"
 
 const Detail = () => {
   const { id } = useParams();
