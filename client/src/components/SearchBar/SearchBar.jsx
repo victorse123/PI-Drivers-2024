@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchDrivers } from "../../../Redux/actions/actions";
-import search_icon from "../../../images/icons/Search.png";
+import { searchDrivers } from "..//..//Redux/actions/actions.js";
+import search_icon from "..//..//images/icons/Search.png";
 import './SearchBar.css';
 import { Link } from "react-router-dom";
 

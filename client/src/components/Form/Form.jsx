@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { driverPost, getTeams } from '../../Redux/actions/actions';
+import { driverPost, getTeam } from '../../Redux/actions/actions';
 import './Form.css';
 
 // Función para validar los campos del formulario
@@ -79,7 +79,7 @@ function Form() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTeams()); // Obtener la lista de las escuderias
+    dispatch(getTeam()); // Obtener la lista de las escuderias
   }, [dispatch]);
 
   const team = useSelector((state) => state.teams);
