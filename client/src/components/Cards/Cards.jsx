@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 import { Link } from 'react-router-dom';
 import Loader from '../home/Loader/Loader';
 import Pagination from '../home/Pagination/Pagination';
-import './AllCards.css';
+import './Cards.css';
 
 function AllCards({ currentPage, setCurrentPage, driversPerPage, indexOfFirstDriver, indexOfLastDriver }) {
   const dispatch = useDispatch();
