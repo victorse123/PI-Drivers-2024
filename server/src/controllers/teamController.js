@@ -109,7 +109,7 @@
 
 // module.exports = { getAllTeams };
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Este controlador se encarga de obtener todos los equipos de la base de datos local y, en caso de que no haya equipos, los recopila de la API externa y los guarda en la base de datos local. Veamos algunos puntos relevantes:
 
 //Método getAllTeams:
