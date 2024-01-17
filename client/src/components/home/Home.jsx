@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import Header from '../Header/Header';
 import AllCards from '../Cards/Cards';
-//import SearchBar from '../Header/SearchBar/SearchBar';
+//import SearchBar from '..//SearchBar/SearchBar';
 import ButtonCreateDriver from './ButtonCreateDriver/ButtonCreateDriver';
 import Filtros from './Filter/Filtros';
 import Footer from '../Footer/Footer';
 import { useDispatch } from 'react-redux';
-import { orderByName } from '../../Redux/actions/actions';
+import { orderByName, orderByTeam } from '../../Redux/actions/actions';
 import {} from './Home.css';
 
 function Home() {
@@ -20,6 +20,9 @@ function Home() {
     // Envía acciones de ordenamiento basadas en la opción seleccionada
     if (value === 'name_asc' || value === 'name_des') {
       dispatch(orderByName(value));
+    } 
+    if (value === 'team_asc' || value === 'team_des') {
+      dispatch(orderByTeam(value));
     } 
   }
 
@@ -44,8 +47,8 @@ function Home() {
             <select className='select_ordernamiento' onChange={handleChange}>
               <option className='option_name' value="name_asc">Nombre (a-z)</option>
               <option className='option_name' value="name_des">Nombre (z-a)</option>
-              <option className='option_name' value="peso_asc">Peso (-/+)</option>
-              <option className='option_name' value="peso_des">Peso (+/-)</option>
+              <option className='option_name' value="team_asc">Escuderia (-/+)</option>
+              <option className='option_name' value="team_des">Escuderia (+/-)</option>
             </select>
           </div>
         </div>

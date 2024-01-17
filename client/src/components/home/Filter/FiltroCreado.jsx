@@ -14,10 +14,20 @@ function FiltroCreado({ currentPage, setCurrentPage }) {
 
   // Componente que muestra un selector de opciones
   return (
+    // <div>
+    //   <select onChange={handleSelect}>
+    //     {/* Opción predeterminada deshabilitada */}
+    //     <option selected disabled>Selecciona uno</option>
+    //     {/* Opciones disponibles */}
+    //     <option value="All">Todos</option>
+    //     <option value="Api">API</option>
+    //     <option value="creados">Base de datos</option>
+    //   </select>
+    // </div>
     <div>
-      <select onChange={handleSelect}>
+      <select defaultValue="" onChange={handleSelect}>
         {/* Opción predeterminada deshabilitada */}
-        <option selected disabled>Selecciona uno</option>
+        <option value="" disabled>Selecciona uno</option>
         {/* Opciones disponibles */}
         <option value="All">Todos</option>
         <option value="Api">API</option>

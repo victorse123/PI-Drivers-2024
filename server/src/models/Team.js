@@ -7,10 +7,10 @@ module.exports = (sequelize) => {
     {
       // ID del equipo, tipo entero, no nulo, clave primaria, autoincremental
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
       },
       // Nombre del equipo, tipo cadena de texto, no nulo
       name: {

@@ -9,6 +9,7 @@ export const DRIVER_POST = 'DRIVER_POST';
 export const FILTER_DRIVER = 'FILTER_DRIVER';
 export const FILTER_CREATED = 'FILTER_CREATED';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
+export const ORDER_BY_TEAM =  'ORDER_BY_TEAM';
 export const DRIVER_WANTED = 'DRIVER_WANTED';
 
 // Función asíncrona para obtener la lista de perros
@@ -109,6 +110,13 @@ export const filterCreated = (payload) => {
 export const orderByName = (payload) => {
   return {
     type: ORDER_BY_NAME,
+    payload
+  };
+};
+
+export const orderByTeam = (payload) => {
+  return {
+    type: ORDER_BY_TEAM,
     payload
   };
 };

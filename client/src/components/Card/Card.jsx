@@ -19,7 +19,7 @@ function Card({ image, name, lastname, teams  }) {
         <span className='card_name_driver'>{name}</span>
         <div>
           {/* Apellido del driver */}
-          <span classlastName='card_lastname_driver'>{lastname}</span>
+          <span className='card_lastname_driver'>{lastname}</span>
         </div>
         {/* Nombre del teams */}
         <span className='card_teams_driver'>{teams}</span>

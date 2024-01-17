@@ -10,6 +10,7 @@ import {
   FILTER_CREATED,
   DRIVER_WANTED,
   ORDER_BY_NAME,
+  ORDER_BY_TEAM,
 } from "../actions/actions";
 
 const initialState = {
@@ -78,6 +79,15 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         drivers: orderDriversName
       };
+    case ORDER_BY_TEAM:
+        // Ordena la lista de teams por nombre (ascendente o descendente)
+        const orderDriversTeam = payload === 'team_asc' ?
+          state.drivers.slice().sort((a, b) => a.team.toLowerCase() < b.team.toLowerCase() ? -1 : 1) :
+          state.drivers.slice().sort((a, b) => a.team.toLowerCase() > b.team.toLowerCase() ? -1 : 1);
+        return {
+          ...state,
+          drivers: orderDriversTeam
+        };
     
     default:
       return state;
