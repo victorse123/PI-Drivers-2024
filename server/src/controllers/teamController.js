@@ -76,6 +76,17 @@ const getAllTeams = async () => {
       const allTeams = teamsFromAPI.map(driver => driver.teams?.split(",").map(team => team.trim()) ?? []).flat()
 
       // Crear registros de equipos en la base de datos utilizando Promise.all
+      await Promise.all(
+        allTeams.map(async (team) => {
+          try {
+            await Team.findOrCreate({ where: { name: team } });
+          } catch (error) {
+            console.error("Error al crear equipo:", error);
+            throw error;
+          }
+        })
+      );
+
       // const teamresul =  Promise.all(
       //   allTeams.map(async (team) => {
       //     await Team.findOrCreate({where:{name:team}
