@@ -90,6 +90,7 @@ const getAllTeams = async () => {
           await Team.findOrCreate({ where: { name: allTeams[i] } });
         } catch (error) {
           console.error("Error al crear equipo:", error);
+          throw error;
         }
         // await Team.findOrCreate({where: {name: allTeams[i]}, 
         // defaults: {}
