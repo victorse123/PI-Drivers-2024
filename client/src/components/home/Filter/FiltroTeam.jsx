@@ -17,18 +17,20 @@ function FiltroTeam({ setCurrentPage }) {
   const temp = useSelector(state => state.teams) 
 
   // Manejar el evento onChange del select para filtrar los drivers por team
-  function handleFilter() {   
+  function handleFilter(event) {   
     setCurrentPage(1); // Reiniciar la página actual al cambiar el filtro
     dispatch(filterDriver(event.target.value)); // Filtrar drivers por team
   }
   return (
     <div>
       <select onChange={handleFilter} defaultValue="">
-      <option value=""disabled>Selecciona uno</option>
+      <option value=""disabled>
+        Selecciona uno
+        </option>
       <option value="All">All Teams</option>
-        {temp.map((t, i) => (
-          <option value={t} key={i}>
-            {t}
+      {Array.isArray(temp) && temp.map((t, i) => (
+        <option value={String(t)} key={i}>
+          {String(t)}
           </option>
     ))}
 </select>
