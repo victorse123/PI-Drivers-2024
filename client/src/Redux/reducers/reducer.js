@@ -51,7 +51,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case FILTER_DRIVER:
       // Filtra la lista de driver según el team seleccionado
       const allDrivers = state.allDriversFilter;
-      const filteredDrivers = payload === 'All' ? allDrivers : allDrivers.filter(e => e.team.includes(payload));
+      const filteredDrivers = payload === 'All' ? allDrivers : allDrivers.filter(e => e.team && e.team.includes(payload));
       return {
         ...state,
         dogs: filteredDrivers
