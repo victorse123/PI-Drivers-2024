@@ -192,6 +192,7 @@ const getAllTeams = async () => {
 
       await Promise.all(
         teamsFromAPI.map(async (team) => {
+          console.log("Team object:", team);
           const teamName = getTeamName(team);
           if (teamName) {
             await Team.create({
