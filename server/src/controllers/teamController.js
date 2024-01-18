@@ -156,16 +156,29 @@ dotenv.config();
 const URL = process.env.URL_API;
 
 // Función para obtener el nombre del equipo, maneja casos donde team.name no es una cadena de texto
+// const getTeamName = (team) => {
+//   if (team && team.name) {
+//     if (typeof team.name === 'string') {
+//       return team.name;
+//     } else if (Array.isArray(team.name)) {
+//       // Manejar el caso de un array, puedes ajustar esto según la estructura real
+//       return team.name.join(', ');
+//     } else if (typeof team.name === 'object') {
+//       // Manejar el caso de un objeto, puedes ajustar esto según la estructura real
+//       return team.name.toString();
+//     }
+//   }
+//   return null;
+// };
+
 const getTeamName = (team) => {
   if (team && team.name) {
     if (typeof team.name === 'string') {
       return team.name;
     } else if (Array.isArray(team.name)) {
-      // Manejar el caso de un array, puedes ajustar esto según la estructura real
       return team.name.join(', ');
-    } else if (typeof team.name === 'object') {
-      // Manejar el caso de un objeto, puedes ajustar esto según la estructura real
-      return team.name.toString();
+    } else {
+      return "Invalid Team Name"; // O cualquier otra cadena que indique un nombre no válido
     }
   }
   return null;
