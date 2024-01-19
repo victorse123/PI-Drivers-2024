@@ -96,7 +96,6 @@
 // } catch (error) { ... }: Manejo de errores en caso de falla al obtener equipos de la API o al interactuar con la base de datos.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 const { Team } = require("../db");
 const axios = require("axios");
 const dotenv = require("dotenv");
@@ -111,10 +110,8 @@ const getTeamName = (team) => {
       return team.name;
     } else if (Array.isArray(team.name)) {
       return team.name.join(', ');
-    } else if (typeof team.name === 'object' && team.name !== null) {
-      // Ajusta esto según la estructura real de tu objeto de equipo
-      // Aquí estoy asumiendo que el nombre del equipo se encuentra en team.name.value
-      return team.name.value || "Invalid Team Name";
+    } else if (typeof team.name === 'object' && team.name.value) {
+      return team.name.value;
     }
   }
   return "Invalid Team Name";
@@ -127,7 +124,13 @@ const getAllTeams = async () => {
     const { data: teamsFromAPI } = await axios.get(`${URL}`);
 
     // Crear array de nombres de equipos, manejando casos donde el nombre es un objeto
-    const allTeams = teamsFromAPI.map(driver => getTeamName(driver));
+    const allTeams = teamsFromAPI.map(driver => {
+      if (driver.teams) {
+        return getTeamName({ name: driver.teams });
+      } else {
+        return getTeamName(driver);
+      }
+    });
 
     console.log("All Teams:", allTeams);
 
