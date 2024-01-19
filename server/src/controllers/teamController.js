@@ -97,10 +97,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
 const { Team } = require("../db");
 const axios = require("axios");
 const dotenv = require("dotenv");
@@ -115,13 +111,13 @@ const getTeamName = (team) => {
       return team.name;
     } else if (Array.isArray(team.name)) {
       return team.name.join(', ');
-    } else if (typeof team.name === 'object') {
+    } else if (typeof team.name === 'object' && team.name !== null) {
       // Ajusta esto según la estructura real de tu objeto de equipo
       // Aquí estoy asumiendo que el nombre del equipo se encuentra en team.name.value
       return team.name.value || "Invalid Team Name";
     }
   }
-  return null;
+  return "Invalid Team Name";
 };
 
 // Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
@@ -131,7 +127,9 @@ const getAllTeams = async () => {
     const { data: teamsFromAPI } = await axios.get(`${URL}`);
 
     // Crear array de nombres de equipos, manejando casos donde el nombre es un objeto
-    const allTeams = teamsFromAPI.map(driver => getTeamName(driver) || "").flat();
+    const allTeams = teamsFromAPI.map(driver => getTeamName(driver));
+
+    console.log("All Teams:", allTeams);
 
     // Crear registros de equipos en la base de datos utilizando Promise.all
     await Promise.all(
