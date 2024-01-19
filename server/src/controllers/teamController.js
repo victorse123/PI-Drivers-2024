@@ -110,8 +110,12 @@ const getTeamName = (team) => {
       return team.name;
     } else if (Array.isArray(team.name)) {
       return team.name.join(', ');
-    } else if (typeof team.name === 'object' && team.name.value) {
-      return team.name.value;
+    } else if (typeof team.name === 'object') {
+      if (team.name.value) {
+        return team.name.value;
+      } else if (team.name.text) {
+        return team.name.text;
+      }
     }
   }
   return "Invalid Team Name";
@@ -132,7 +136,7 @@ const getAllTeams = async () => {
       }
     });
 
-    console.log("All Teams:", allTeams);
+    console.log("All Teams from API:", allTeams);
 
     // Crear registros de equipos en la base de datos utilizando Promise.all
     await Promise.all(
@@ -148,6 +152,8 @@ const getAllTeams = async () => {
 
     // Obtener todos los equipos desde la base de datos
     const teamsBDD = await Team.findAll();
+
+    console.log("All Teams from Database:", teamsBDD.map(team => team.name));
 
     return teamsBDD;
   } catch (error) {
