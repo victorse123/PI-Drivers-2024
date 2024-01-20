@@ -161,21 +161,5 @@ const getAllTeams = async () => {
     throw error;
   }
 };
-    // Obtener todos los equipos desde la base de datos
-const teamsBDD = await Team.findAll();
-
-console.log("All Teams from Database:", teamsBDD.map(team => {
-  if (team && typeof team === 'object') {
-    // Imprimir más información sobre el objeto si es un objeto
-    return {
-      id: team.id,
-      name: team.name,
-      toJSON: team.toJSON()
-    };
-  } else {
-    // Imprimir el valor si no es un objeto
-    return team;
-  }
-}));
 
 module.exports = { getAllTeams };
