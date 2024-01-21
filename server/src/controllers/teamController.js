@@ -1,66 +1,75 @@
-// const { Team } = require("../db");
-// const axios = require("axios");
-// const dotenv = require("dotenv");
-// dotenv.config();
+const { Team } = require("../db");
+const axios = require("axios");
+const dotenv = require("dotenv");
+dotenv.config();
 
-// const URL = process.env.URL_API;
-// // Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
-// const getAllTeams = async () => {
-//   try {
-//     // Contar la cantidad de equipos en la base de datos
-//    // const teamCount = await Team.count();
-// // Si no hay equipos en la base de datos, sincronizar con la API
-//     //if (teamCount === 0) {
-//       // Obtener equipos desde la API
-//       const { data: teamsFromAPI } = await axios.get(`${URL}`);
+const URL = process.env.URL_API;
+// Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
 
-//       const allTeams = teamsFromAPI.map(driver => driver.teams?.split(",").map(team => team.trim()) ?? []).flat()
+const createTeamController = async (name) => {
+  try {
+    const newteam = await Team.create({name})
+    return newteam;
+  } catch (error) {
+    console.error(error.message)
+  }
+}
 
-//       // Crear registros de equipos en la base de datos utilizando Promise.all
-//       await Promise.all(
-//         allTeams.map(async (team) => {
-//           try {
-//             await Team.findOrCreate({ where: { name: team } });
-//           } catch (error) {
-//             console.error("Error al crear equipo:", error);
-//             throw error;
-//           }
-//         })
-//       );
 
-//       const teamresul =  Promise.all(
-//         allTeams.map(async (team) => {
-//           await Team.findOrCreate({where:{name:team}
+const getAllTeams = async () => {
+  try {
+    // Contar la cantidad de equipos en la base de datos
+   
+      // Obtener equipos desde la API
+      const { data } = await axios.get(URL);
+      //const notteam = data.filter(driver => driver.teams?.trim() !== "" || null)
+      //console.log(notteam)
+      const splittedTeams = data.map((driver) => driver.teams?.trim().split(/,| y /) || [])
+      
+    const allTeams = splittedTeams.flat();
+    console.log(allTeams)
+    //const valideteams = allTeams.filter(team => team !== "")
+    
+    
+    //console.log(valideteams)
+     //const allTeams = data.map(driver => driver.teams?.split(/,| y /).map(team => team.trim()) ?? []).flat()
+    
+      // Crear registros de equipos en la base de datos utilizando Promise.all
+      // await Promise.all(
+      //   allTeams.map(async (team) => {
+      //     try {
+      //       await Team.findOrCreate({ where: { name: team } });
+      //     } catch (error) {
+      //       console.error("Error al crear equipo:", error);
+      //       throw error;
+      //     }
+      //   })
+      // );
+
+      // const teamresul =  Promise.all(
+      //   allTeams.map(async (team) => {
+      //     await Team.findOrCreate({where:{name:team}
             
           
-//           });
-//         })
-//       );
-//       // for(let i=0; i<allTeams.length; i++) 
-//       // {
-//       //   try {
-//       //     await Team.findOrCreate({ where: { name: allTeams[i] } });
-//       //   } catch (error) {
-//       //     console.error("Error al crear equipo:", error);
-//       //     throw error;
-        
-//         // await Team.findOrCreate({where: {name: allTeams[i]}, 
-//         // defaults: {}
-//       //})
-      
-   
+      //     });
+      //   })
+      // );
+      for(let i=0; i<allTeams.length; i++) 
+      {
+          await Team.findOrCreate({ where: { name: allTeams[i] } });
+        } 
     
-// // Obtener todos los equipos desde la base de datos
-//     const teamsBDD = await Team.findAll();
+// Obtener todos los equipos desde la base de datos
+    const teamsBDD = await Team.findAll();
 
-//     return teamsBDD;
-//   } catch (error) {
-//     console.error("Error al obtener los equipos de la API:",{error: error.message});
-//     throw error;
-//   }
-// };
+    return teamsBDD;
+  } catch (error) {
+    console.error("Error al obtener los equipos de la API:",{error: error.message});
+    throw error;
+  }
+};
 
-// module.exports = { getAllTeams };
+module.exports = { getAllTeams, createTeamController };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Este controlador se encarga de obtener todos los equipos de la base de datos local y, en caso de que no haya equipos, los recopila de la API externa y los guarda en la base de datos local. Veamos algunos puntos relevantes:
@@ -96,70 +105,87 @@
 // } catch (error) { ... }: Manejo de errores en caso de falla al obtener equipos de la API o al interactuar con la base de datos.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const { Team } = require("../db");
-const axios = require("axios");
-const dotenv = require("dotenv");
-dotenv.config();
+// const { Team } = require("../db");
+// const axios = require("axios");
+// const dotenv = require("dotenv");
+// dotenv.config();
 
-const URL = process.env.URL_API;
+// const URL = process.env.URL_API;
 
-// Función para obtener el nombre del equipo, maneja casos donde team.name no es una cadena de texto
-const getTeamName = (team) => {
-  if (team && team.name) {
-    if (typeof team.name === 'string') {
-      return team.name;
-    } else if (Array.isArray(team.name)) {
-      return team.name.join(', ');
-    } else if (typeof team.name === 'object') {
-      if (team.name.value) {
-        return team.name.value;
-      } else if (team.name.text) {
-        return team.name.text;
-      }
-    }
-  }
-  return "Invalid Team Name";
-};
+// // Función para obtener el nombre del equipo, maneja casos donde team.name no es una cadena de texto
+// const getTeamName = (team) => {
+//   console.log("Team Object:", team);
 
-// Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
-const getAllTeams = async () => {
-  try {
-    // Obtener equipos desde la API
-    const { data: teamsFromAPI } = await axios.get(`${URL}`);
+//   if (team && team.name) {
+//     let teamName = team.name;
 
-    // Crear array de nombres de equipos, manejando casos donde el nombre es un objeto
-    const allTeams = teamsFromAPI.map(driver => {
-      if (driver.teams) {
-        return getTeamName({ name: driver.teams });
-      } else {
-        return getTeamName(driver);
-      }
-    });
+//     // Si teamName es un objeto, intenta obtener el nombre de nuevo
+//     if (typeof teamName === 'object') {
+//       // Verifica si el objeto tiene una propiedad 'name'
+//       if (teamName.name) {
+//         teamName = teamName.name;
+//       } else {
+//         // Si no tiene 'name', convierte el objeto a cadena
+//         teamName = JSON.stringify(teamName);
+//       }
+//     }
 
-    console.log("All Teams from API:", allTeams);
+//     // Ahora, teamName debería ser una cadena de texto o un array
+//     if (typeof teamName === 'string') {
+//       return teamName;
+//     } else if (Array.isArray(teamName)) {
+//       return teamName.join(', ');
+//     }
+//   }
 
-    // Crear registros de equipos en la base de datos utilizando Promise.all
-    await Promise.all(
-      allTeams.map(async (team) => {
-        try {
-          await Team.findOrCreate({ where: { name: team } });
-        } catch (error) {
-          console.error("Error al crear equipo:", error);
-          throw error;
-        }
-      })
-    );
+//   return "Invalid Team Name";
+// };
 
-    // Obtener todos los equipos desde la base de datos
-    const teamsBDD = await Team.findAll();
+// // Obtener todos los equipos, sincronizando con la API si la base de datos está vacía
+// const getAllTeams = async () => {
+//   try {
+//     // Obtener equipos desde la API
+//     const { data: teamsFromAPI } = await axios.get(`${URL}`);
 
-    console.log("All Teams from Database:", teamsBDD.map(team => team.name));
+//     // Crear array de nombres de equipos, manejando casos donde el nombre es un objeto
+//     const allTeams = teamsFromAPI.map(driver => {
+//       if (driver.teams) {
+//         return getTeamName({ name: driver.teams });
+//       } else {
+//         return getTeamName(driver);
+//       }
+//     });
 
-    return teamsBDD;
-  } catch (error) {
-    console.error("Error al obtener los equipos de la API:", { error: error.message });
-    throw error;
-  }
-};
+//     console.log("All Teams from API:", allTeams);
 
-module.exports = { getAllTeams };
+//     // Crear registros de equipos en la base de datos utilizando Promise.all
+//     await Promise.all(
+//       allTeams.map(async (team) => {
+//         try {
+//           await Team.findOrCreate({ where: { name: team } });
+//         } catch (error) {
+//           console.error("Error al crear equipo:", error);
+//           throw error;
+//         }
+//       })
+//     );
+
+//     // Obtener todos los equipos desde la base de datos
+//     const teamsBDD = await Team.findAll();
+
+//     console.log("All Teams from Database:", teamsBDD.map(team => team.name));
+//     teamsBDD.forEach(team => {
+//       console.log("Team Name: ", team.name);
+//       console.log("Team ID: ", team.id);
+//       // ... otras propiedades del equipo que desees mostrar
+//   });
+  
+  
+//     return teamsBDD;
+//   } catch (error) {
+//     console.error("Error al obtener los equipos de la API:", { error: error.message });
+//     throw error;
+//   }
+// };
+
+// module.exports = { getAllTeams };

@@ -62,13 +62,14 @@ export const driverPost = (payload) => {
 export const getTeam = () => {
   return async function(dispatch) {
     try {
-      const teams = (await axios.get("http://localhost:3001/teams")).data;
+      const {data} = await axios.get("http://localhost:3001/teams");
       
-      
+      console.log(data)
       return dispatch({
         type: GET_TEAM,
-        payload: teams
+        payload: data
       });
+      
     } catch (error) {
       console.log(error);
     }

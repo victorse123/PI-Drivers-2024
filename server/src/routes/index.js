@@ -6,7 +6,7 @@ const {
   getDetailDriverHandler,
 } = require("..//handlers/driversHandlers");
 
-const { getAllTeamsHandler } = require("../handlers/teamHandlers");
+const { getAllTeamsHandler, createTeamHandler } = require("../handlers/teamHandlers");
 // Ruta para obtener todos los conductores o conductores por nombre
 router.get("/drivers", getDriversHandler);
 // Ruta para obtener detalles de un conductor por ID
@@ -15,6 +15,8 @@ router.get("/drivers/:id", getDetailDriverHandler);
 router.post("/drivers", postDriverHandler);
 // Ruta para obtener todos los equipos
 router.get("/teams", getAllTeamsHandler);
+
+router.post("/teams", createTeamHandler);
 
 module.exports = router;
 

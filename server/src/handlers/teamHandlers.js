@@ -1,4 +1,4 @@
-const { getAllTeams } = require("../controllers/teamController");
+const { getAllTeams, createTeamController } = require("../controllers/teamController");
 // Controlador para obtener todos los equipos
 async function getAllTeamsHandler(req, res) {
   try {
@@ -11,8 +11,19 @@ async function getAllTeamsHandler(req, res) {
   }
 }
 
+async function createTeamHandler(req, res) {
+  try {
+    const {name}=req.body
+    const response= await createTeamController(name)
+    return res.status(200).json(response)
+  }
+  catch (error) {
+    return res.status(400).json({error: error.message});
+  }
+}
+
 module.exports = {
-  getAllTeamsHandler,
+  getAllTeamsHandler, createTeamHandler
 };
 
 // const { getAllTeams } = require("../controllers/teamController");: Importa la función getAllTeams del controlador teamController.
