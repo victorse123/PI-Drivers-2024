@@ -14,16 +14,18 @@ function SearchBar() {
 
   // Función para manejar cambios en el input de búsqueda
   function handleChange(e) {
-    const name = e.target.value;
-    setNameDriver(name);
+    e.preventDefault()
+    setNameDriver(e.target.value);
     // Realiza la búsqueda solo si hay un nombre escrito
-    if (name) {
-      dispatch(searchDrivers(name));
-    }
+    
   }
 
   // Función para limpiar el campo de búsqueda
-  function onSearch() {
+  function onSearch(e) {
+    e.preventDefault()
+    if (nameDriver) {
+      dispatch(searchDrivers(nameDriver));
+    }
     setNameDriver('');
   }
 
@@ -44,24 +46,24 @@ function SearchBar() {
         {/* Botón para limpiar el campo de búsqueda */}
         <button
           className={nameDriver.length > 0 ? "cleaner active" : "cleaner"}
-          onClick={() => onSearch()}
+          onClick={(e) => onSearch(e)}
         >
-          x
+          Search
         </button>
       </div>
 
       {/* Mostrar resultados de la búsqueda */}
-      <div className={nameDriver.length !== 0 ? "divSearchBar_Results active" : "divSearchBar_Results"}>
+      {/* <div className={nameDriver.length !== 0 ? "divSearchBar_Results active" : "divSearchBar_Results"}>
         <div className="div_nameResult">
       
           {nameDriver && driversHome.slice(0, 10).map((d) => (
-            <div key={d.id}>
+            <div key={d.id}> */}
               {/* Enlaces de los resultados de búsqueda */}
-              <Link className="results" to={`/home/${d.id}`}>{d.name}</Link>
-            </div>
-          ))}
-        </div>
-      </div>
+              {/* <Link className="results" to={`/home/${d.id}`}>{d.name}</Link>
+            </div> */}
+          {/* ))} */}
+        {/* </div> */}
+      {/* </div> */}
     </div>
   );
 }

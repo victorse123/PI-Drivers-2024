@@ -79,10 +79,11 @@ export const getTeam = () => {
 
 
 // Función asíncrona para buscar drivers 
-export const searchDrivers = (team) => {
+export const searchDrivers = (name) => {
   return async function(dispatch) {
     try {
-      let driversWanted = (await axios(`http://localhost:3001/search?name=${team}`)).data;
+      let driversWanted = (await axios(`http://localhost:3001/drivers/?name=${name}`)).data;
+      //console.log(driversWanted)
       return dispatch({
         type: DRIVER_WANTED,
         payload: driversWanted

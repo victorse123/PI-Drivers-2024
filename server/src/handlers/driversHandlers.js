@@ -1,40 +1,24 @@
 const {
-    getAllDrivers,
-    postDriver,
-    getDriverById,
-    getDriverByName,
-  } = require("..//controllers/driversController");
-  // Controlador para obtener conductores por nombre o todos los conductores
-  // by name y getAll de api y bdd
-  const getDriversHandler = async (req, res) => {
-    const { name } = req.query;
-  
-    try {
-      const allDrivers = await getAllDrivers();
-       // Filtrar conductores por nombre si se proporciona el parámetro 'name'
-      if (name) {
-        const driversByName = allDrivers.filter((driver) =>
-          driver.name.toLowerCase().startsWith(name.toLowerCase())
-        );
-        // Limitar la respuesta a 15 conductores
-        if (driversByName.length > 0) {
-          const quinceDrivers = driversByName.slice(0, 15);
-  
-          res.status(200).json(quinceDrivers);
-        } else {
-          res.status(404).send("Not found");
-        }
-  
-        // if (name) {
-        //   const driversByName = await getDriverByName(name);
-  
-        //   if (driversByName.length === 0) {
-        //     res.status(404).json({ message: "No se encontraron coincidencias" });
-        //   } else {
-        //     return res.status(200).json(driversByName);
-        //   }
-      } else {
-        // const allDrivers = await getAllDrivers();
+  getAllDrivers,
+  postDriver,
+  getDriverById,
+  getDriverByName,
+} = require("..//controllers/driversController");
+// Controlador para obtener conductores por nombre o todos los conductores
+// by name y getAll de api y bdd
+const getDriversHandler = async (req, res) => {
+  const { name } = req.query;
+  let searchName = name
+  try {
+    const allDrivers = await getAllDrivers();
+    // Filtrar conductores por nombre si se proporciona el parámetro 'name'
+    if (searchName) {
+      
+      const drivers = allDrivers.filter(driver => driver.name === searchName)
+      return drivers
+    }
+     else {
+       
   // Si no se proporciona 'name', devolver todos los conductores
         return res.status(200).json(allDrivers);
       }

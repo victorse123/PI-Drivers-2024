@@ -15,54 +15,29 @@ const createTeamController = async (name) => {
   }
 }
 
-
 const getAllTeams = async () => {
   try {
     // Contar la cantidad de equipos en la base de datos
    
       // Obtener equipos desde la API
       const { data } = await axios.get(URL);
-      //const notteam = data.filter(driver => driver.teams?.trim() !== "" || null)
-      //console.log(notteam)
-      const splittedTeams = data.map((driver) => driver.teams?.trim().split(/,| y /) || [])
       
-    const allTeams = splittedTeams.flat();
-    console.log(allTeams)
-    //const valideteams = allTeams.filter(team => team !== "")
+      let arrayTeams = []
     
-    
-    //console.log(valideteams)
-     //const allTeams = data.map(driver => driver.teams?.split(/,| y /).map(team => team.trim()) ?? []).flat()
-    
-      // Crear registros de equipos en la base de datos utilizando Promise.all
-      // await Promise.all(
-      //   allTeams.map(async (team) => {
-      //     try {
-      //       await Team.findOrCreate({ where: { name: team } });
-      //     } catch (error) {
-      //       console.error("Error al crear equipo:", error);
-      //       throw error;
-      //     }
-      //   })
-      // );
+      data.map((driver) => {
+        let newTeams = driver.teams ? driver.teams : null
+        if (newTeams)
+        arrayTeams = [...arrayTeams, ...newTeams.trim().split(/,| y /) || [] ]
+      })
+     const setTeams  = new Set (arrayTeams)
+      arrayTeams = Array.from(setTeams)
 
-      // const teamresul =  Promise.all(
-      //   allTeams.map(async (team) => {
-      //     await Team.findOrCreate({where:{name:team}
-            
-          
-      //     });
-      //   })
-      // );
-      for(let i=0; i<allTeams.length; i++) 
-      {
-          await Team.findOrCreate({ where: { name: allTeams[i] } });
-        } 
+      
     
-// Obtener todos los equipos desde la base de datos
+// // Obtener todos los equipos desde la base de datos
     const teamsBDD = await Team.findAll();
 
-    return teamsBDD;
+    return arrayTeams;
   } catch (error) {
     console.error("Error al obtener los equipos de la API:",{error: error.message});
     throw error;

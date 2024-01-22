@@ -10,35 +10,38 @@ const URL = process.env.URL_API;
 //GET ALL DRIVERS DE API Y BDD
 const getAllDrivers = async () => {
   // Obtener todos los conductores de la base de datos
-  const driversBDD = await Driver.findAll({
-    include: {
-      model: Team,
-      attributes: ["name"], //incluye el name de cada team
-      through: {
-        attributes: [],
-      },
-    },
-  });
+  // const driversBDD = await Driver.findAll({
+  //   include: {
+  //     model: Team,
+  //     attributes: ["name"], //incluye el name de cada team
+  //     through: {
+  //       attributes: [],
+  //     },
+  //   },
+  // });
 // Obtener información de la API y limpiarla
   const infoApi = (await axios.get(`${URL}`)).data;
-  const driverApi = infoCleaner(infoApi).map((driver) => ({
-    ...driver,
-    source: "API",
-  }));
+  const driverApi = infoCleaner(infoApi)
+  
+  // .map((driver) => ({
+  //   ...driver,
+  //   source: "API",
+  // }));
 // Mapear los conductores de la base de datos y agregar la fuente y los equipos
-  const driversBDDWithSource = driversBDD.map((driver) => {
-    const teams = driver.Teams.map((team) => team.name).join(", "); //trae los teams en un array=> Teams: []
+  // const driversBDDWithSource = driversBDD.map((driver) => {
+    // const teams = driver.Teams.map((team) => team.name).join(", "); //trae los teams en un array=> Teams: []
 
     //La variable driverData contendrá todas las demás propiedades del objeto driver.dataValues excepto Teams.
-    const { Teams, ...driverData } = driver.dataValues;
-    return {
-      ...driverData,
-      source: "BDD",
-      teams,
-    };
-  });
+  //   const { Teams, ...driverData } = driver.dataValues;
+  //   return {
+  //     ...driverData,
+  //     source: "BDD",
+  //     teams,
+  //   };
+  // });
   //fusiona ambos array y devolverlos
-  return [...driversBDDWithSource, ...driverApi];
+  // return [...driversBDDWithSource, ...driverApi];
+  return driverApi
 };
 // Crear un nuevo conductor con transacción para garantizar la integridad
 const postDriver = async ({
