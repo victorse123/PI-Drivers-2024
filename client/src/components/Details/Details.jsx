@@ -15,7 +15,7 @@ function Details(props) {
   // Obtiene la información del estado utilizando useSelector
   const driver = useSelector(state => state.details);
 
-  // Obtiene el ID de los parámetros de la URL
+  // Obtiene el ID de los parámetros de la URL...
   const id = props.match.params.id;
 
   // Dispara la acción para obtener detalles del drive al montar o actualizar el componente
