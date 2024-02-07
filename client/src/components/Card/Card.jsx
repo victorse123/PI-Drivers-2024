@@ -4,7 +4,7 @@ import imageDriverDefault from '..//..//images/F1-3.jpg'
 import './Card.css';
 
 function Card({ image, name, lastname, teams  }) {
-  //Renderiza una tarjeta que muestra información sobre el driver
+  //Renderiza una tarjeta que muestra información sobre el driver.....
 
   return (
     <div className='card'>
