@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/Header';
@@ -17,7 +18,7 @@ function Details(props) {
   // Obtiene el ID de los parámetros de la URL
   const id = props.match.params.id;
 
-  // Dispara la acción para obtener detalles del perro al montar o actualizar el componente
+  // Dispara la acción para obtener detalles del drive al montar o actualizar el componente
   useEffect(() => {
 
     dispatch(getDetail(id))
@@ -45,13 +46,14 @@ function Details(props) {
 }
 
 export default Details;
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // import React, { useState, useEffect } from 'react';
 // import { useParams, Link } from 'react-router-dom';
 // import styles from "..//Details/Details.css";
 // import defaultImage from '..//..//images/F1.jpg';
 // import { useDispatch, useSelector } from 'react-redux';
-// import { getDriverByID } from '../../Redux/actions/actions.js';
+// //import { getDriverByID } from '../../Redux/actions/actions.js';
+// import { GET_DETAILS, getDetail } from '../../Redux/actions/actions';
 // import style from "..//Cards/Cards.css"
 
 // const Detail = () => {
@@ -63,7 +65,7 @@ export default Details;
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         await dispatch(getDriverByID(id));
+//         await dispatch(getDetail(id));
       
 //       } catch (error) {
 //      console.log(error.message)
@@ -109,3 +111,4 @@ export default Details;
 // };
 
 // export default Detail;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,9 +9,9 @@ function FiltroTeam({ setCurrentPage }) {
     dispatch (getTeam())
   },[] )
   // Disparar la acción para obtener los teams al montar el componente
-  // useEffect(() => {
-  //   temp?.map(getTemperament());
-  // }, [dispatch]);
+  useEffect(() => {
+    temp?.map(getTeam());
+  }, [dispatch]);
 
   // Obtener los teams del estado global utilizando useSelector
   const temp = useSelector(state => state.teams) 
